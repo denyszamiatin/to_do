@@ -1,6 +1,6 @@
 __author__ = 'viktoria'
 
-name = _import_('create_list1')
+name = __import__('create_list1')
 
 def task_description(description):
     name.task.append([description])
