@@ -1,8 +1,10 @@
 __author__ = 'viktoria'
 
+name = _import_('create_list1')
+
 def task_description(description):
-    task.append([description])
-    print task
+    name.task.append([description])
+    print name.task
 
 while True:
     print 'If you want enter new task press - a'
