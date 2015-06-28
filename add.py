@@ -10,7 +10,6 @@ def date_validate(my_date):
         day, month, year = my_date.split('.')
         d = date(int(year), int(month), int(day))
         res = d.strftime('%d.%m.%Y')
-        print res
         return res
     except ValueError:
         raise Exception('Date was setted with errors')
