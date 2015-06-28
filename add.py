@@ -1,10 +1,11 @@
 __author__ = 'illes'
-name =  __import__("Create a to_do list")
+from create_list1 import task
+
 """ adding date and text in global value task
 """
 
 def add(date, text):
-    name.task.append([date, text])
+    task.append([date, text])
 
 
 
