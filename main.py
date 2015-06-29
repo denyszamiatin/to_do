@@ -1,19 +1,21 @@
-print "Hello"
-task = []
+from datetime import datetime
 
-def task_description(description):
-    task.append([description])
-    print task
+tasks = []
 
-while True:
-    print 'If you want enter new task press - a'
-    print 'If you want quite press - q'
+def input_description():
+    return raw_input('Enter task')
 
-    s = raw_input('what you want? ')
-    if s == 'q':
-        break
-    elif s == 'a':
-        description = str(raw_input('Enter task'))
-        task_description(description)
-    else:
-        exit()
+
+def input_date():
+    return raw_input('Entere date ("dd.mm.yyyy")')
+
+
+def fail_if_invalid_date(my_date):
+    try:
+        datetime.strptime(my_date, '%d.%m.%Y')
+    except ValueError:
+        raise Exception('Date was setted with errors')
+
+
+def add_task(date, description):
+    tasks.append([date, description])
