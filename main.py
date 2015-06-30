@@ -29,3 +29,8 @@ def return_today_tasks():
         return tasks[today]
     else:
         return None
+
+
+def del_task_by_date(date, index):
+    if date in tasks and len(tasks[date]) - 1 >= index:
+        tasks[date].pop(index)
