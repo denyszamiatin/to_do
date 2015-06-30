@@ -1,6 +1,6 @@
 from datetime import datetime
 
-tasks = []
+tasks = {}
 
 def input_description():
     return raw_input('Enter task')
@@ -18,4 +18,7 @@ def fail_if_invalid_date(my_date):
 
 
 def add_task(date, description):
-    tasks.append([date, description])
+    if date in tasks:
+        tasks[date].append(description)
+    else:
+        tasks[date] = [description]
