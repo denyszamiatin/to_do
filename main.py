@@ -16,6 +16,7 @@ def fail_if_invalid_date(my_date):
     except ValueError:
         raise Exception('Date was setted with errors')
 
+
 def add_task(date, description):
     if date in tasks:
         tasks[date].append(description)
@@ -29,8 +30,7 @@ def return_today_tasks():
     else:
         return None
 
-def all_tasks_on_date(date):
-    if date in tasks:
-        return tasks[date]
-    else:
-        return None
+
+def del_task_by_date(date, index):
+    if date in tasks and len(tasks[date]) - 1 >= index:
+        tasks[date].pop(index)
