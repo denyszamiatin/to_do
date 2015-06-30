@@ -22,3 +22,10 @@ def add_task(date, description):
         tasks[date].append(description)
     else:
         tasks[date] = [description]
+
+def return_today_tasks():
+    today = datetime.today().strftime('%d.%m.%Y');
+    if today in tasks:
+        return tasks[today]
+    else:
+        return None
