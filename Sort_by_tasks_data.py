@@ -1,6 +1,6 @@
 __author__ = 'mikhail'
 
-sortlist = []
+sortlist = ()
 def sortBytasks(my_data):
      if tasks in my_data:
          return sortBytasks[tasks]
