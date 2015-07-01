@@ -1,4 +1,4 @@
-from main import *
+from main import add_task, fail_if_invalid_date, input_date, input_description
 
 def menu():
     print "This is Todo List. Please input your choice."
