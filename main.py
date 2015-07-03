@@ -57,7 +57,7 @@ def update_task(date, index, description):
 def print_sorted_tasks():
   date_list = [datetime.strptime(dt, '%d.%m.%Y') for dt in tasks]
   for date in sorted(date_list):
-      date = date.strftime('%d.%m.%Y')
+      date = date
       print '\nList of tasks for {}\n'.format(date)
       for i, task in enumerate(sorted(tasks[date])):
           print '\t{} - {}'.format(i, task)
