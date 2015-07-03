@@ -6,7 +6,7 @@ web_app = Flask(__name__)
 @web_app.route('/')
 @web_app.route('/index')
 def index():
-    return render_template()
+    return render_template('index.html')
 
 
 web_app.run(debug = True)
