@@ -6,6 +6,18 @@
         <link rel="stylesheet" href="//localhost:5000/static/main.css"/>
     </head>
     <body>
+    <h1>Привет, {{name.nickname.decode('utf-8')}}.</h1>
+    {% if list %}
+    Ваши задания на сегодня<br>
+    <ul>
+        {% for post in list %}
+            <li>{{post}}</li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    У вас нет сегодня заданий<br>
+    {% endif %}
+    <h1>Меню</h1>
     <ul>
         <li><a href="/addtask">Добавить задачу</a></li>
     </ul>

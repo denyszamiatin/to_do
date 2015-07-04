@@ -1,14 +1,15 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 from flask import Flask, render_template, request
-from main import tasks, add_task, fail_if_invalid_date
+from main import tasks, add_task, fail_if_invalid_date, return_today_tasks
 
 web_app = Flask(__name__)
 
 @web_app.route('/')
 @web_app.route('/index')
 def index():
-    return render_template('index.html')
+    name = {'nickname' : 'Dimon'}
+    return render_template('index.html', name = name, list = return_today_tasks())
 
 
 @web_app.route('/addtask', methods=['GET','POST'])
