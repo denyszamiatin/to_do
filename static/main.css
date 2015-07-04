@@ -1,2 +1,13 @@
 .success {color:green}
 .error {color:red}
+body {
+	margin: 0;
+	padding: 0;
+	color: #000;
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 13px;
+	line-height: 1.7em;
+	background-color: #f1f1f1;
+	background-repeat: repeat-x;
+	background-position: top
+}
