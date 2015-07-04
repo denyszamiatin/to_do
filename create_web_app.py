@@ -10,6 +10,12 @@ web_app = Flask(__name__)
 def index():
     return render_template('index.html')
 
+@web_app.route('/')    #('/addtask')
+@web_app.route('/index')
+def enter_date():
+    return '<form action="/enter_date" method="GET"><input name="date"><input type="submit" value="Enter date"></form>'
+    return request.args.get('date')
+
 
 @web_app.route('/addtask', methods=['GET','POST'])
 def addtask():
