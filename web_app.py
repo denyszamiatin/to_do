@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 from flask import Flask, render_template, request, redirect
-from main import tasks, add_task, fail_if_invalid_date, return_today_tasks
+from main import add_task, fail_if_invalid_date, return_today_tasks
 from setting import nickname
 
 web_app = Flask(__name__)
@@ -29,7 +29,6 @@ def add_task_web():
             return redirect('/')
         except Exception as e:
             error_message = e.message
-
     return render_template('addtask.html', error_message=error_message, form=form)
 
 
