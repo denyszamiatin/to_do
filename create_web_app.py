@@ -11,11 +11,11 @@ def index():
     name = {'nickname' : 'Dimon'}
     return render_template('index.html', name = name, list = return_today_tasks())
 
-@web_app.route('/')    #('/addtask')
-@web_app.route('/index')
-def enter_date():
-    return '<form action="/enter_date" method="GET"><input name="date"><input type="submit" value="Enter date"></form>'
-    return request.args.get('date')
+
+@web_app.route('/')
+@web_app.route('/serch_by_date')
+def serch_by_date():
+    return '<form action="/serch_by_date" method="GET"><input name="date"><input type="submit" value="Enter date"></form>'
 
 
 @web_app.route('/addtask', methods=['GET','POST'])
