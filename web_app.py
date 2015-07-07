@@ -3,8 +3,10 @@
 from flask import Flask, render_template, request, redirect
 from main import add_task, fail_if_invalid_date, return_today_tasks
 from setting import nickname
+from flask_bootstrap import Bootstrap
 
 web_app = Flask(__name__)
+Bootstrap(web_app)
 
 @web_app.route('/')
 @web_app.route('/index')

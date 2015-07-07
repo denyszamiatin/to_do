@@ -1,33 +1,57 @@
 <!doctype html>
 <html>
+    <link href="../static/css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+    </style>
+    <link href="../static/css/bootstrap-responsive.css" rel="stylesheet">
     <head>
         <meta charset='utf-8'/>
         <title>Главное меню</title>
-        <link rel="stylesheet" href="static/main.css"/>
     </head>
     <body>
-    <h1>Привет</h1>
-    <p>
-        <form action="search" method="get">
-            <input type="date" name='date' value="" />
-            <input type="submit" value="Search by date" />
-        </form>
-    </p>
-    {% block content %}
-    {% if tasks %}
-    Ваши задания на сегодня<br>
-    <ul>
-        {% for task in tasks %}
-            <li>{{task}}</li>
-        {% endfor %}
-    </ul>
-    {% else %}
-    У вас нет сегодня заданий<br>
-    {% endif %}
-    {% endblock %}
-    <h1>Меню</h1>
-    <ul>
-        <li><a href="/addtask">Добавить задачу</a></li>
-    </ul>
+      <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+          <div class="container">
+            <a class="brand" href="/index">Наш Проект</a>
+            <div class="nav-collapse collapse">
+              <ul class="nav">
+                <li class="active"><a href="/index">Домой</a></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">Меню <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="/addtask">Добавить задачу</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% block content %}
+      <h1>Привет</h1>
+      <p>
+          <form action="search" method="get">
+              <input type="date" name='date' value="" />
+              <input type="submit" value="Search by date" />
+          </form>
+      </p>
+      {% if tasks %}
+      Ваши задания на сегодня<br>
+      <ul>
+          {% for task in tasks %}
+              <li>{{task}}</li>
+          {% endfor %}
+      </ul>
+      {% else %}
+      У вас нет сегодня заданий<br>
+      {% endif %}
+      {% endblock %}
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="../static/js/bootstrap.min.js"></script>
     </body>
 </html>
