@@ -1,12 +1,12 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 from flask import Flask, render_template, request, redirect
-from main import add_task, fail_if_invalid_date, return_today_tasks
+from main import add_task, fail_if_invalid_date, return_today_tasks, read_tasks
 from setting import nickname
 from flask_bootstrap import Bootstrap
 
 web_app = Flask(__name__)
-Bootstrap(web_app)
+read_tasks()
 
 @web_app.route('/')
 @web_app.route('/index')

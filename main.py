@@ -1,5 +1,6 @@
 from datetime import datetime
 from collections import defaultdict
+from serialize import serialize_tasks, deserialize_tasks
 
 tasks = defaultdict(list)
 
@@ -9,6 +10,15 @@ def input_description():
 
 def input_date():
     return raw_input('Entere date ("dd.mm.yyyy")')
+
+
+def read_tasks():
+    try:
+        global tasks
+        tasks = deserialize_tasks()
+    except IOError:
+        serialize_tasks(tasks)
+        return read_tasks()
 
 
 def fail_if_invalid_date(date):
@@ -21,7 +31,7 @@ def fail_if_invalid_date(date):
 
 def fail_if_date_not_exists(date):
     if date not in tasks:
-        raise  Exception('Date not found')
+        raise Exception('Date not found')
 
 
 def fail_if_task_not_exists(date, index):
@@ -31,6 +41,7 @@ def fail_if_task_not_exists(date, index):
 
 def add_task(date, description):
     tasks[date].append(description)
+    serialize_tasks(tasks)
 
 
 def get_all_tasks(date):
@@ -55,9 +66,9 @@ def update_task(date, index, description):
 
 
 def print_sorted_tasks():
-  date_list = [datetime.strptime(dt, '%d.%m.%Y') for dt in tasks]
-  for date in sorted(date_list):
-      date = date.strftime('%d.%m.%Y')
-      print '\nList of tasks for {}\n'.format(date)
-      for i, task in enumerate(sorted(tasks[date])):
-          print '\t{} - {}'.format(i, task)
+    date_list = [datetime.strptime(dt, '%d.%m.%Y') for dt in tasks]
+    for date in sorted(date_list):
+        date = date.strftime('%d.%m.%Y')
+        print '\nList of tasks for {}\n'.format(date)
+        for i, task in enumerate(sorted(tasks[date])):
+            print '\t{} - {}'.format(i, task)
