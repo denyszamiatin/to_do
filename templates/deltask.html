@@ -1,0 +1,16 @@
+{% extends "index.html" %}
+{% block content %}
+<h1 class="error">{{ error_message }}</h1>
+{% for task in tasks %}
+<li>{{task}}</li>
+{% for description in tasks[task] %}
+<form action="deltask" method="post">
+<ul>{{description}}<button>х</button>
+</ul>
+<input type="hidden" name = "task" value="{{task}}" />
+<input type="hidden" name = "index" value="{{loop.index}}" />
+</form>
+{% endfor %}
+{% endfor %}
+{% endblock %}
+

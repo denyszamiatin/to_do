@@ -45,6 +45,7 @@ def delete_task_web():
             )
         except Exception as e:
             error_message = e.message
+    print read_all_tasks()
     return render_template('deltask.html', error_message=error_message, tasks=read_all_tasks())
 
 
