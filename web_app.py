@@ -1,7 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 from flask import Flask, render_template, request, redirect
-from main import add_task, fail_if_invalid_date, return_today_tasks, read_tasks, delete_task, tasks, read_all_tasks
+from main import add_task, fail_if_invalid_date, return_today_tasks, read_tasks, delete_task, tasks, read_all_tasks, \
+    get_all_tasks
 from setting import nickname
 from flask_bootstrap import Bootstrap
 
@@ -12,6 +13,12 @@ read_tasks()
 @web_app.route('/index')
 def index():
     return render_template('index.html', name=nickname, tasks=return_today_tasks())
+
+
+@web_app.route('/getall', method=['GET', 'POST'])
+def get_all_tasks():
+    error_message =''
+    return render_template('getall.html', error_message=error_message, tasks=get_all_tasks())
 
 
 @web_app.route('/addtask', methods=['GET', 'POST'])
