@@ -15,10 +15,10 @@ def index():
     return render_template('index.html', name=nickname, tasks=return_today_tasks())
 
 
-@web_app.route('/getall', method=['GET', 'POST'])
-def get_all_tasks():
-    error_message =''
-    return render_template('getall.html', error_message=error_message, tasks=get_all_tasks())
+#@web_app.route('/getall', method=['GET', 'POST'])
+#def get_all_tasks():
+#    error_message =''
+#    return render_template('getall.html', error_message=error_message, tasks=get_all_tasks())
 
 
 @web_app.route('/addtask', methods=['GET', 'POST'])
