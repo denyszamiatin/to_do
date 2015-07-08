@@ -48,6 +48,10 @@ def get_all_tasks(date):
     return tasks.get(date, [])
 
 
+def read_all_tasks():
+    return tasks.copy()
+
+
 def return_today_tasks():
     today = datetime.today().strftime('%d.%m.%Y');
     return get_all_tasks(today)
