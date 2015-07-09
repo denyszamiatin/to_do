@@ -49,7 +49,7 @@ def delete_task_web():
         try:
             delete_task(
                 request.form['task'],
-                int(request.form['index']) - 1
+                int(request.form['index'])
             )
         except Exception as e:
             error_message = e.message

@@ -44,7 +44,7 @@
       Ваши задания на {{date}}<br>
       <ul>
           {% for task in tasks %}
-              <li>{{task}}</li>
+              <li>{{task}}<input name="selected_task" type="radio" value="{{loop.index - 1}}"/></li>
           {% endfor %}
       </ul>
       {% else %}
