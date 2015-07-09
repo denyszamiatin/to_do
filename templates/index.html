@@ -35,13 +35,13 @@
       {% block content %}
       <h1>Привет</h1>
       <p>
-          <form action="search" method="get">
+          <form action="#" method="get">
               <input type="date" name='date' value="" />
               <input type="submit" class="btn btn-success" value="Search by date" />
           </form>
       </p>
       {% if tasks %}
-      Ваши задания на сегодня<br>
+      Ваши задания на {{date}}<br>
       <ul>
           {% for task in tasks %}
               <li>{{task}}</li>
