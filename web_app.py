@@ -13,7 +13,6 @@ read_tasks()
 @web_app.route('/index')
 def index():
     date = _convert_htm5_date(request.args['date']) if request.args else datetime.today().strftime('%d.%m.%Y')
-    print date
     return render_template('index.html', name=nickname, date = date, tasks=get_all_tasks(date))
 
 
