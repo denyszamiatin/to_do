@@ -14,7 +14,6 @@ def input_date():
 
 def read_tasks():
     try:
-        global tasks
         tasks = deserialize_tasks()
     except IOError:
         serialize_tasks(tasks)

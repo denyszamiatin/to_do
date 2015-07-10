@@ -2,9 +2,9 @@
 # -*- coding: utf-8 -*-
 from flask import Flask, render_template, request, redirect
 from datetime import datetime
-from main import add_task, fail_if_invalid_date, return_today_tasks, read_tasks, delete_task, tasks, read_all_tasks, get_all_tasks
+from main import add_task, fail_if_invalid_date, read_tasks, delete_task,\
+    read_all_tasks, get_all_tasks
 from setting import nickname
-from flask_bootstrap import Bootstrap
 
 web_app = Flask(__name__)
 read_tasks()
@@ -12,14 +12,14 @@ read_tasks()
 @web_app.route('/')
 @web_app.route('/index')
 def index():
-    date = _convert_htm5_date(request.args['date']) if request.args else datetime.today().strftime('%d.%m.%Y')
-    return render_template('index.html', name=nickname, date = date, tasks=get_all_tasks(date))
-
-
-#@web_app.route('/getall', method=['GET', 'POST'])
-#def get_all_tasks():
-#    error_message =''
-#    return render_template('getall.html', error_message=error_message, tasks=get_all_tasks())
+    date = _convert_htm5_date(request.args['date']) \
+        if request.args else datetime.today().strftime('%d.%m.%Y')
+    return render_template(
+        'index.html',
+        name=nickname,
+        date=date,
+        tasks=get_all_tasks(date)
+    )
 
 
 @web_app.route('/addtask', methods=['GET', 'POST'])
